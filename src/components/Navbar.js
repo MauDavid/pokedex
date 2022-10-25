@@ -15,6 +15,12 @@ function Navbar(props) {
     onSearch(Search);
   };
 
+  const onKeyPokemon = (e) => {
+    if (e.keyCode === 13) {
+      onClickBuscarPokemon();
+    }
+  };
+
   return (
     <div>
       <nav className="navbar bg-transparent">
@@ -23,15 +29,18 @@ function Navbar(props) {
             <input
               className="form-control me-2"
               type="search"
-              placeholder="Search"
+              placeholder="Buscar Pokemon "
               aria-label="Search"
               onChange={onChange}
+              value={Search}
+              onKeyDown={onKeyPokemon}
             />
             <button
               className="btn btn-outline-success"
               onClick={onClickBuscarPokemon}
+              type="submit"
             >
-              Search
+              Buscar
             </button>
           </form>
         </div>
